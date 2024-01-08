@@ -23,9 +23,9 @@ Steps:
 
 7. Add a RegisterConfirmation and model to Pages/Account/
 
-8. In _Layout add a menu item to Register page
+8. Add ConfirmEmail Razor page and model to Pages/Account/
 
-9. Add ConfirmEmail Razor page and model to Pages/Account/
+9. In Pages/Shared/_Layout add a menu item to Register page
 
 10. Execute and register users to the database
 
