@@ -17,6 +17,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMusicWebApi", "AppMusicW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMusicMVC", "AppMusicMVC\AppMusicMVC.csproj", "{F17E2C52-46DF-4305-8B47-2E0227786603}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{361533D6-440D-40C5-9948-7573EF50A325}"
+	ProjectSection(SolutionItems) = preProject
+		0_Adding_Identity.txt = 0_Adding_Identity.txt
+		1_Adding_Registration.txt = 1_Adding_Registration.txt
+		2_Adding_Login.txt = 2_Adding_Login.txt
+		3_Adding_Page_Authorization.txt = 3_Adding_Page_Authorization.txt
+		4_Adding Model_Authorization.txt = 4_Adding Model_Authorization.txt
+		5_Adding_UI_Authorization.txt = 5_Adding_UI_Authorization.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
