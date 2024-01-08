@@ -20,6 +20,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 Add using statments
 @using Microsoft.AspNetCore.Identity;
 @using Models;
+@inject UserManager<csUser> userManager;
 
 6. Add @if (!User.Identity.IsAuthenticated) to controll Login, Register, Logout meny items
 

@@ -19,6 +19,12 @@ builder.Services.AddDefaultIdentity<csUser>(options => {
 })
     .AddEntityFrameworkStores<DbContext.csMainDbContext>();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.AccessDeniedPath = "/Account/Login";
+});
+
 builder.Services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, csEmailService>();
 
 #region Injecting a dependency service to read MusicWebApi
