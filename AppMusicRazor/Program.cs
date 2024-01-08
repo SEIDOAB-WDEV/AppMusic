@@ -8,27 +8,7 @@ using Models;
 using Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
-#region L1.4 Enabling Razor Pages
-//Add a folder called Pages.
-//Copy index.html from wwwroot into Pages
-//rename index.html into index.cshtml
-
-//in index.cshtml change
-//  <title>Simple Razor page</title>
-//  <h1 class="display-5 fw-normal">Simple Razor page</h1>
-//  add @page to the very top (try also without it)
-
-//Adds everything needed for secure RazorPages
 builder.Services.AddRazorPages();
-/*
-//during development this could AFT can be swithced off all the time
-builder.Services.AddRazorPages(o =>
-{
-    o.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
-});
-*/
-#endregion
 
 builder.Services.AddIdentityDbContext();
 builder.Services.AddDefaultIdentity<csUser>(options => {
@@ -64,7 +44,6 @@ else
 
 var app = builder.Build();
 
-#region L1.1 Testing and securing the website
 //using Hsts and https to secure the site
 if (!app.Environment.IsDevelopment())
 {
@@ -75,26 +54,13 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-#endregion
 
-#region L1.3 Enabling static and default files
-//Create a wwwroot directory.
-//Copy the files from SimpleStatic into wwwroot directory
-
-//Enable static and default files
-app.UseDefaultFiles();
 app.UseStaticFiles();
-
-//try https://localhost:5001/index.html
-//to make this default, simply change app.MapGet("/hello",...) 
-
-#endregion
-
 app.UseRouting();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
-#region L1.2 Controlling the hosting environment, L1.4 Enabling Razor Pages
 
 //Map Razorpages into Pages folder
 app.MapRazorPages();
@@ -109,7 +75,6 @@ app.MapGet("/hello", () =>
 
     return $"Hello World!\nASPNETCORE_ENVIRONMENT: {_env}\nMyOwn: {_envMyOwn}";
 });
-#endregion
 
 app.Run();
 
