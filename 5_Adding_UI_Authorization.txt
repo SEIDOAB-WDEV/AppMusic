@@ -12,7 +12,7 @@ Steps:
 2.  Make a call to AuthorizeAsync to check if User is Authorized to access the property in the Model
 @{
     ViewData["Title"] = "List groups";
-    var authResult = await _authService.AuthorizeAsync(User, Model.MusicGroups.First(), csMusicGroupOperations.Delete);
+    var authResult = await _authService.AuthorizeAsync(User, Model.MusicGroups.FirstOrDefault(), csMusicGroupOperations.Delete);
 }
 
 3. In ListOfGroups remove New, Edit and Delete buttons if User is not Authenticated to access resoure
