@@ -16,7 +16,7 @@
             <div class="row mb-2 text-center">
                 <div class="col-md-10 themed-grid-head-col">Group Name</div>
                 <div class="col-md-2 themed-grid-head-col">
-                    <a href="~/EditGroup" class="btn btn-success btn-sm m-1" type="button">New</a>
+                    <a href="~/Members/EditGroup" class="btn btn-success btn-sm m-1" type="button">New</a>
                 </div>
             </div>
             <form method="post" class="needs-validation" novalidate>
@@ -35,7 +35,7 @@
                                 </a>
                             </div>
                             <div class="col-md-2 themed-grid-col">
-                                <a href="~/EditGroup?id=@item.MusicGroupId" class="btn btn-secondary btn-sm m-1" type="button">Edit</a>
+                                <a href="~/Members/EditGroup?id=@item.MusicGroupId" class="btn btn-secondary btn-sm m-1" type="button">Edit</a>
 
                                 <!-- Button to trigger modal confirmation with modal in the form tag -->
                                 <button type="button" class="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#delModal"

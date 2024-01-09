@@ -17,12 +17,14 @@
     <Folder Include="SeidoHelpers\" />
     <Folder Include="TempMail\" />
     <Folder Include="Pages\Account\" />
+    <Folder Include="Pages\Members\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Pages\" />
     <None Remove="SeidoHelpers\" />
     <None Remove="TempMail\" />
     <None Remove="Pages\Account\" />
+    <None Remove="Pages\Members\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">

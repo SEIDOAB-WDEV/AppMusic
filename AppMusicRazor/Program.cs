@@ -8,7 +8,10 @@ using Models;
 using Services;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(option =>
+{
+    option.Conventions.AuthorizeFolder("/Members");
+});
 
 builder.Services.AddIdentityDbContext();
 builder.Services.AddDefaultIdentity<csUser>(options => {
