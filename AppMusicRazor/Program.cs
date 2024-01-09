@@ -1,7 +1,9 @@
 ﻿//Show all files in Solution explorer.
 //./obj/Debug/net7.0/AppMvc.GlobalUsings.g.cs show all implicit "using"
 
+using AppMusicRazor.ModelAuthorization;
 using DbContext;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Models;
@@ -29,6 +31,9 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, csEmailService>();
+
+//Model Authorization
+builder.Services.AddSingleton<IAuthorizationHandler, csMusicGroupAuthorizationHandler>();
 
 #region Injecting a dependency service to read MusicWebApi
 if (Configuration.csAppConfig.DataSource == "WebApi")
