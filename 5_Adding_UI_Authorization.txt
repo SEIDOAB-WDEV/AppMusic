@@ -4,6 +4,7 @@ Adjust UI to hide and show buttons depending on User Authorized to access the re
 
 Steps:
 1. In ListOfGroups
+    @using Microsoft.AspNetCore.Authorization;
     @using AppMusicRazor.ModelAuthorization;
     @using Microsoft.AspNetCore.Identity;
     @inject IAuthorizationService _authService;
