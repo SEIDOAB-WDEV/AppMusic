@@ -4,9 +4,24 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Services;
+using Models;
+using DbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
+
+builder.Services.AddIdentityDbContext();
+
+builder.Services.AddDefaultIdentity<csUser>(options => {
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.SignIn.RequireConfirmedAccount = true;
+})
+    .AddEntityFrameworkStores<DbContext.csMainDbContext>();
+
+
 
 #region Injecting a dependency service to read MusicWebApi
 if (Configuration.csAppConfig.DataSource == "WebApi")
@@ -44,6 +59,9 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 //Map Razorpages into Pages folder
 app.MapRazorPages();
