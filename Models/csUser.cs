@@ -5,7 +5,10 @@ namespace Models
 {
 	public class csUser : IdentityUser<Guid>
     {
-		public csUser()
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public csUser()
 		{
 		}
 	}

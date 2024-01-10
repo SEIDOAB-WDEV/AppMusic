@@ -21,6 +21,7 @@ builder.Services.AddDefaultIdentity<csUser>(options => {
 })
     .AddEntityFrameworkStores<DbContext.csMainDbContext>();
 
+builder.Services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, csEmailService>();
 
 
 #region Injecting a dependency service to read MusicWebApi

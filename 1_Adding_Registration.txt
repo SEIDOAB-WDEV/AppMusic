@@ -16,6 +16,7 @@ Steps:
  public class csEmailService : IEmailSender
 
 4. In Program.cs add csEmailService as a transient Service using Dependecy Injection
+builder.Services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, csEmailService>();
 
 5. In Application create a directory TempMail for all emails
 
