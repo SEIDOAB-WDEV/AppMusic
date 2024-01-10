@@ -197,3 +197,31 @@ public class csMainDbContext : IdentityDbContext<csUser, IdentityRole<Guid>, Gui
 }
 
 
+public static class csMainDbContextExtensions
+{
+    public static IServiceCollection AddIdentityDbContext(this IServiceCollection serviceCollection)
+    {
+        serviceCollection.AddDbContext<csMainDbContext>(options =>
+        {
+            var loginDetail = csAppConfig.DbLoginDetails("sysadmin");
+            if (loginDetail.DbServer == "SQLServer")
+            {
+                options.UseSqlServer(loginDetail.DbConnectionString,
+                        options => options.EnableRetryOnFailure());
+            }
+            else if (loginDetail.DbServer == "MariaDb")
+            {
+                options.UseMySql(loginDetail.DbConnectionString, ServerVersion.AutoDetect(loginDetail.DbConnectionString));
+            }
+            else if (loginDetail.DbServer == "Postgres")
+            {
+                options.UseNpgsql(loginDetail.DbConnectionString);
+            }
+            else if (loginDetail.DbServer == "SQLite")
+            {
+                options.UseSqlite(loginDetail.DbConnectionString);
+            }
+        });
+        return serviceCollection;
+    }
+}
