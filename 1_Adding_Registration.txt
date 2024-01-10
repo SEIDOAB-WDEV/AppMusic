@@ -28,8 +28,6 @@ builder.Services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSe
 
 9. In Pages/Shared/_Layout add a menu item to Register page
 
-10. Execute and register users to the database
-
 10. Make a Migration and database update to reflect the changes in csUser
 
 11. Execute and register users to the database

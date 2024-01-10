@@ -23,6 +23,11 @@ builder.Services.AddDefaultIdentity<csUser>(options => {
 
 builder.Services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, csEmailService>();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.AccessDeniedPath = "/Account/Login";
+});
 
 #region Injecting a dependency service to read MusicWebApi
 if (Configuration.csAppConfig.DataSource == "WebApi")
