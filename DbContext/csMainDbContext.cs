@@ -1,5 +1,8 @@
 ﻿using System.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 using Configuration;
 using Models;
@@ -9,7 +12,7 @@ namespace DbContext;
 //DbContext namespace is a fundamental EFC layer of the database context and is
 //used for all Database connection as well as for EFC CodeFirst migration and database updates 
 
-public class csMainDbContext : Microsoft.EntityFrameworkCore.DbContext
+public class csMainDbContext : IdentityDbContext<csUser, IdentityRole<Guid>, Guid>
 {
     #region class - Table mapping
 
