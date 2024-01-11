@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Services;
 using Models;
 using DbContext;
+using AppMusicRazor.ModelAuthorization;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
@@ -28,6 +30,12 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/Account/Login";
     options.AccessDeniedPath = "/Account/Login";
 });
+builder.Services.AddRazorPages(option =>
+{
+    option.Conventions.AuthorizeFolder("/Members");
+});
+builder.Services.AddSingleton<IAuthorizationHandler, csMusicGroupAuthorizationHandler>();
+
 
 #region Injecting a dependency service to read MusicWebApi
 if (Configuration.csAppConfig.DataSource == "WebApi")
